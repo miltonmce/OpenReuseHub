@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Detalle del Cliente</h2>
+    
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ cliente.nombre }}</h5>
+            <p class="card-text">
+                <strong>Email:</strong> {{ cliente.email }}<br>
+                <strong>Teléfono:</strong> {{ cliente.telefono }}<br>
+                <strong>Fecha Registro:</strong> {{ cliente.fecha_creacion|date:"d/m/Y" }}<br>
+                <strong>Estado:</strong> {% if cliente.activo %}Activo{% else %}Inactivo{% endif %}
+            </p>
+            <a href="{% url 'clientes:list' %}" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
